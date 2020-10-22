@@ -6,9 +6,9 @@ import { makeStyles, createStyles } from '@material-ui/core/styles';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import Container from '@material-ui/core/Container';
 import initialData from './initialData';
-import Column from './Column/Column';
-import { CharactorList } from './Charactors/CharactorList';
-import { Header } from './Header';
+import Column from './components/Column';
+import { CharactorList } from './components/Charactors/CharactorList';
+import { Header } from './components/Header';
 import { initialize } from './initialize';
 
 const useStyle = makeStyles(() => createStyles({

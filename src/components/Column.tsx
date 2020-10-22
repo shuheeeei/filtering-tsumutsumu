@@ -4,7 +4,7 @@ import { makeStyles, createStyles } from '@material-ui/core/styles';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
-import Condition from '../Condition/Condition';
+import Condition from './Condition';
 
 const useStyles = makeStyles((matches: boolean) => createStyles({
   column: {
