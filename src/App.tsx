@@ -80,12 +80,6 @@ const App = () => {
     }));
   };
 
-  const sleep = (sec: number): Promise<string> => new Promise((resolve, reject) => {
-    setTimeout(() => {
-      resolve('hoge');
-    }, sec);
-  });
-
   const searchCharactor = useCallback(async (selectedConditionIds: string[]) => {
     setLoading(true);
     if (selectedConditionIds.length === 0) {
@@ -97,7 +91,6 @@ const App = () => {
       (c) => c.features.filter((f) => selectedConditionIds.includes(f)).length === selectedConditionIds.length,
     );
 
-    const res = await sleep(1000);
     setLoading(false);
     setCharactors(result);
   }, [searchConditions]); // eslint-disable-line react-hooks/exhaustive-deps
