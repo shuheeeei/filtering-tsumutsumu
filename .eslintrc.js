@@ -23,6 +23,13 @@ module.exports = {
     'react-hooks',
     '@typescript-eslint',
   ],
+  settings: {
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".jsx", ".ts", ".tsx"]
+      }
+    }
+  },
   rules: {
     'jsx-a11y/control-has-associated-label': 0,
     camelcase: 0,
@@ -32,11 +39,7 @@ module.exports = {
     'no-unused-vars': 'off',
     '@typescript-eslint/no-unused-vars': 'error',
     'react/button-has-type': 0,
-    'react/jsx-props-no-spreading': ['error', {
-      html: 'enforce',
-      custom: 'ignore',
-      exceptions: [],
-    }],
+    'react/jsx-props-no-spreading': 0,
     'react-hooks/rules-of-hooks': 'error',
     'react-hooks/exhaustive-deps': 'warn',
     'max-len': [
@@ -69,7 +72,6 @@ module.exports = {
     'import/no-extraneous-dependencies': [
       'error',
       {
-        devDependencies: ['**/*.stories.tsx'],
         optionalDependencies: false,
         peerDependencies: false,
         packageDir: './',
@@ -84,7 +86,7 @@ module.exports = {
       },
     ],
     'react/jsx-filename-extension': [
-      'error',
+      2,
       {
         extensions: [
           '.js',
@@ -94,15 +96,8 @@ module.exports = {
         ],
       },
     ],
-    'import/extensions': [
-      'error', 'always',
-      {
-        js: 'never',
-        jsx: 'never',
-        ts: 'never',
-        tsx: 'never',
-      },
-    ],
-
+    'import/extensions': [0,  [".js", ".jsx", ".json", ".ts", ".tsx"]],
+    'quotes': ['error', 'single'],
+    'no-unused-vars': 'error',
   },
 };
