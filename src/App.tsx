@@ -28,7 +28,6 @@ const useStyle = makeStyles(() => createStyles({
 const App = () => {
   const matches: boolean = useMediaQuery('(max-width:900px)');
   const classes = useStyle();
-  console.log(matches, classes.mainContainer);
   const {
     conditions, columns: initColumns, columnOrder,
   } = useMemo(() => initialize(), []);

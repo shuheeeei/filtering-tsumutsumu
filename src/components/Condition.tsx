@@ -2,7 +2,6 @@ import React from 'react';
 import { Draggable } from 'react-beautiful-dnd';
 import { makeStyles, createStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-import styled from 'styled-components';
 
 type Props = {
   condition: ConditionContent;
