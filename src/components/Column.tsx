@@ -30,7 +30,7 @@ const useStyles = makeStyles((matches: boolean) => createStyles({
   inner: {
     padding: '8px',
     transition: 'background-color 0.2s ease',
-    height: '280px',
+    height: '300px',
     display: 'flex',
     flexDirection: 'column',
     alignContent: 'flex-start',
