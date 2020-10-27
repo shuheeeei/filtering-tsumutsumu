@@ -2,8 +2,8 @@ import initialData from './initialData';
 
 const initializeConditions = (features: TsumuFeature): Conditions => {
   const conditions: Conditions = {};
-  Object.keys(features).forEach((featKey: string, index: number) => {
-    const id: string = `f-${index}`;
+  Object.keys(features).forEach((featKey: string) => {
+    const id: string = featKey;
     conditions[id] = { id, content: features[featKey] };
   });
   return conditions;
