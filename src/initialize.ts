@@ -30,5 +30,4 @@ export const initialize = (): {conditions: Conditions, columns: Columns, columnO
     columns,
     columnOrder,
   };
-  // charactorもここで返すようにする
 };

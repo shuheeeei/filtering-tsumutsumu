@@ -4,7 +4,8 @@ import Button from '@material-ui/core/Button';
 
 type Props = {
   charactor: TsumuType;
-  isListtleChar: boolean;
+  isLittleChar: boolean;
+  img: HTMLImageElement;
 };
 
 const useStyles = makeStyles(() => createStyles({
@@ -40,22 +41,19 @@ const useStyles = makeStyles(() => createStyles({
   },
 }));
 
-export const Charactor: React.FC<Props> = (props) => {
+export const Charactor: React.FC<Props> = React.memo((props) => {
   const classes = useStyles();
   const cardStyle: string = `${classes.cardContent} ${props.charactor.name.length > 7 && classes.fontSm}`;
 
   return (
     <Button
       variant="outlined"
-      className={`${classes.card} ${props.isListtleChar && classes.marginR8}`}
+      className={`${classes.card} ${props.isLittleChar && classes.marginR8}`}
     >
       <section className={cardStyle}>
-        <img
-          src={props.charactor.imgUrl}
-          alt={`${props.charactor.name}の画像`}
-        />
+        <img src={props.img.src} alt={props.img.alt} />
         {props.charactor.name}
       </section>
     </Button>
   );
-};
+});
