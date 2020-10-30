@@ -15,19 +15,33 @@ const useStyle = makeStyles(() => createStyles({
     fontWeight: 'bold',
     color: '#fff',
     lineHeight: '80px',
-    '& > a': {
-      textDecoration: 'none',
+    '& > span': {
+      cursor: 'pointer',
       color: 'white',
+      '&:focus': {
+        outline: 'none',
+      },
     },
   },
 }));
 
-export const Header: React.FC = () => {
+type Props = {
+  onTitleClick: () => void;
+};
+
+export const Header: React.FC<Props> = (props) => {
   const classes = useStyle();
   return (
     <Container className={classes.background} maxWidth={false}>
       <Typography className={classes.title} align="center">
-        <a href="/">ツムツムフィルター</a>
+        <span
+          onClick={props.onTitleClick}
+          tabIndex={0}
+          onKeyDown={() => {}}
+          role="button"
+        >
+          ツムツムフィルター
+        </span>
       </Typography>
     </Container>
   );

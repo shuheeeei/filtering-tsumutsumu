@@ -94,6 +94,11 @@ const App = () => {
     setCharactors(result);
   }, [searchConditions]); // eslint-disable-line react-hooks/exhaustive-deps
 
+  const onTitleClick = useCallback(() => {
+    setColumns(initColumns);
+    setCharactors(initialData.data);
+  }, [initColumns]);
+
   useEffect(() => {
     setSearchConditions([...columns['selected-condition-column'].conditionIds]);
   }, [columns]);
@@ -104,7 +109,7 @@ const App = () => {
 
   return (
     <main>
-      <Header />
+      <Header onTitleClick={onTitleClick} />
       <DragDropContext onDragEnd={onDragEnd}>
         <Container className={`${classes.mainContainer} ${matches && classes.flexColumn}`}>
           {columnOrder.map((columnId: string) => {
