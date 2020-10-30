@@ -5,7 +5,6 @@ import Button from '@material-ui/core/Button';
 type Props = {
   charactor: TsumuType;
   isLittleChar: boolean;
-  img: HTMLImageElement;
 };
 
 const useStyles = makeStyles(() => createStyles({
@@ -51,7 +50,7 @@ export const Charactor: React.FC<Props> = React.memo((props) => {
       className={`${classes.card} ${props.isLittleChar && classes.marginR8}`}
     >
       <section className={cardStyle}>
-        <img src={props.img.src} alt={props.img.alt} />
+        <img src={props.charactor.imgUrl} alt={`${props.charactor.name}`} />
         {props.charactor.name}
       </section>
     </Button>
