@@ -75,5 +75,3 @@ const Column: React.FC<Props> = (props) => {
 };
 
 export default Column;
-
-// TODO: 条件のリセットボタンを作りたい

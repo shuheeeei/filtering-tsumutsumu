@@ -1,24 +1,32 @@
 import React from 'react';
-import { makeStyles, createStyles } from '@material-ui/core/styles';
+import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import CircularProgress from '@material-ui/core/CircularProgress';
 
-const useStyle = makeStyles(() => createStyles({
+const useStyle = makeStyles<Theme, {size: 'sm' | 'lg' | undefined}>(() => createStyles({
   loadingIndicator: {
-    width: '48px',
-    height: '48px',
     position: 'absolute',
-    top: 'calc(50% - 24px)',
-    left: 'calc(50% - 24px)',
+    width: '20px',
+    transform: ({ size }) => (size === 'sm' ? 'translate(-15px, 7.5px)' : 'translateX(-20px)'),
   },
 }));
 
-export const LoadingIndicator: React.FC = () => {
-  const classes = useStyle();
+type Props = {
+  color?: 'inherit' | 'primary' | 'secondary';
+  size?: 'sm' | 'lg',
+};
+
+export const LoadingIndicator: React.FC<Props> = (props) => {
+  const classes = useStyle({ size: props.size });
 
   return (
     <Container className={classes.loadingIndicator}>
-      <CircularProgress />
+      <CircularProgress color={props.color} size={props.size === 'sm' ? 30 : 40} />
     </Container>
   );
+};
+
+LoadingIndicator.defaultProps = {
+  color: 'primary',
+  size: 'lg',
 };

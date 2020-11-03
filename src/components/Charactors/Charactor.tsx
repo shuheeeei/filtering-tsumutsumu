@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { makeStyles, createStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
+import { LoadingIndicator } from '../LoadingIndicator';
 
 type Props = {
   charactor: TsumuType;
@@ -24,6 +25,7 @@ const useStyles = makeStyles(() => createStyles({
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
+    position: 'relative',
     '& > img': {
       borderRadius: 4,
       border: '2px solid #fff',
@@ -43,6 +45,7 @@ const useStyles = makeStyles(() => createStyles({
 export const Charactor: React.FC<Props> = React.memo((props) => {
   const classes = useStyles();
   const cardStyle: string = `${classes.cardContent} ${props.charactor.name.length > 7 && classes.fontSm}`;
+  const [loaded, setLoaded] = useState<boolean>(false);
 
   return (
     <Button
@@ -50,7 +53,8 @@ export const Charactor: React.FC<Props> = React.memo((props) => {
       className={`${classes.card} ${props.isLittleChar && classes.marginR8}`}
     >
       <section className={cardStyle}>
-        <img src={props.charactor.imgUrl} alt={`${props.charactor.name}`} />
+        {!loaded && <LoadingIndicator color="inherit" size="sm" />}
+        <img src={props.charactor.imgUrl} alt={`${props.charactor.name}`} onLoad={() => { setLoaded(true); }} />
         {props.charactor.name}
       </section>
     </Button>
