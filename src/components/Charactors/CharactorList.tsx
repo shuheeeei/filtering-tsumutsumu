@@ -45,15 +45,13 @@ export const CharactorList: React.FC<Props> = (props) => {
 
   let result: JSX.Element | JSX.Element[];
   if (props.charactors.length !== 0) {
-    const charactors = props.charactors.map((charactor) => {
-      return (
-        <Charactor
-          key={charactor.id}
-          charactor={charactor}
-          isLittleChar={props.charactors.length < 5}
-        />
-      );
-    });
+    const charactors = props.charactors.map((charactor) => (
+      <Charactor
+        key={charactor.id}
+        charactor={charactor}
+        isLittleChar={props.charactors.length < 5}
+      />
+    ));
     result = !props.loading ? charactors : <LoadingIndicator />;
   } else {
     result = <Typography variant="h4" className={classes.noResultChar}>ありませんでした...</Typography>;

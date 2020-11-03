@@ -105,7 +105,7 @@ const App = () => {
 
   useEffect(() => {
     searchCharactor(searchConditions);
-  }, [searchConditions]);
+  }, [searchConditions, searchCharactor]);
 
   return (
     <main>
